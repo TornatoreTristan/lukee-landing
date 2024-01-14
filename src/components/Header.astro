@@ -4,9 +4,12 @@
       <div>
         <img src="/logo-lukee.svg" alt="logo lukee generateur de publications linkedin" width="80">
       </div>
-      <ul>
+      <ul class="nav-elements">
         <li>
-          À propos
+          <a href="">Connexion</a>
+        </li>
+        <li>
+          <a href="" class="cta-primary">S'inscrire gratuitement</a>
         </li>
       </ul>
     </nav>
@@ -19,5 +22,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+  }
+  ul {
+    display: flex;
+    gap: 15px;
+  }
+  a {
+    color: #1a1f30;
+    font-weight: bold;
+  }
+  li {
+    list-style: none;
+  }
+  .cta-primary {
+    color: #fff;
+    padding: 0.5rem 1.4rem;
   }
 </style>

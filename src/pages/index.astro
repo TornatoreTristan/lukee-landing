@@ -1,13 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LukeeMessage from '../components/Sections/LukeeMessage.astro';
+import LukeeBenefits from '../components/Sections/LukeeBenefits.astro';
+import LukeeScreenShot from '../components/Sections/LukeeScreenShot.astro';
+import LukeeTestimonials from '../components/Sections/LukeeTestimonials.astro';
+import LukeeFAQ from '../components/Sections/LukeeFAQ.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<section class="header-container">
-			<p><span>Lukee 0.4 est en ligne !</span></p>
+			<p><span class="cartouche"><img src="/icon-luckee.svg" width="18" alt="">Lukee 0.4 est en ligne !</span></p>
 			<h1>Gagnez du temps dans la rédaction de vos publications LinkedIn</h1>
+			<p>Lukee est votre assistant dans la rédaction de vos publications sur LinkedIn. Obtenez un résultat époustoufflant grâce à l'intelligence artificielle.</p>
+			<button class="cta-primary">Créer un compte gratuitement</button>
 		</section>
+		<LukeeScreenShot />
+		<LukeeMessage />
+		<LukeeBenefits />
+		<LukeeTestimonials />
+		<LukeeFAQ /> 
 	</main>
 </Layout>
 
@@ -26,9 +38,19 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.header-container p span {
 		padding: 0.5rem 1.5rem;
-		background-color: #81ffb391;
+		background-color: #f249572f;
 		border-radius: 50px;
 		font-weight: bold;
 		color: #1a1f30;
+	}
+	.header-container p {
+		max-width: 700px;
+		text-align: center;
+	}
+	.cartouche {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		font-size: 0.8rem;
 	}
 </style>
