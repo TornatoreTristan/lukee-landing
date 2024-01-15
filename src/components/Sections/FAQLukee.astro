@@ -113,20 +113,40 @@
 }
 </style>
 
-<script>
+<script is:inline>
 document.addEventListener('DOMContentLoaded', function () {
   const faqSections = document.querySelectorAll('.faq-container > div');
 
   faqSections.forEach(section => {
-    section.querySelector('h3').addEventListener('click', function () {
+    const header = section.querySelector('h3');
+    const faqContent = section.querySelector('.faq-content');
+    const toggleIcon = section.querySelector('.toggle-icon');
+
+    header.addEventListener('click', function () {
       const isActive = section.classList.contains('active');
 
-      // Ferme toutes les autres sections
-      faqSections.forEach(s => s.classList.remove('active'));
+      faqSections.forEach(s => {
+        s.classList.remove('active');
+        const content = s.querySelector('.faq-content');
+        const icon = s.querySelector('.toggle-icon');
+        if (content) {
+          content.style.maxHeight = '0';
+          content.style.opacity = '0';
+        }
+        if (icon) {
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
 
-      // Si la section cliquée n'était pas active, l'ouvrir
       if (!isActive) {
         section.classList.add('active');
+        if (faqContent) {
+        faqContent.style.maxHeight = '1500px';
+        faqContent.style.opacity = '1';
+        }
+        if (toggleIcon) {
+        toggleIcon.style.transform = 'rotate(225deg)';
+        }
       }
     });
   });
