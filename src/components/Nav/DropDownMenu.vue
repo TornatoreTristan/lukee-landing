@@ -11,7 +11,7 @@
         </ul> -->
         <div class="cta-header">
           <h2>Accédez à Lukee dès maintenant</h2>
-          <a href="https://app.lukee.io/signin" class="cta-ternary"
+          <a href="https://app.lukee.io/login" class="cta-ternary"
             >Se connecter</a
           >
           <a href="https://app.lukee.io/signup" class="cta-primary"
