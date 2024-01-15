@@ -1,14 +1,44 @@
+<section>
 <footer>
-  <div>
-    <p>© 2024 - Lukee App</p>
-  </div>
-</footer>
+    <div class="footer-content">
+      <img src="/icon-luckee.svg" width="50" alt="">
+      <img src="/logo-lukee.svg" width="90" alt="">
+    </div>
+    <div>
+      <p>© 2024 - Lukee App - <a href="/mentions-legales">Mentions légales</a></p>
+    </div>
+  </footer>
+</section>
 
 <style>
-  footer {
+  section {
     background-color: #f8f9fa;
+  }
+  footer {
     padding: 20px;
     text-align: center;
     width: 100%;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  a {
+    color: #1a1f30;
+    font-weight: bold;
+  }
+  @media screen and (max-width: 768px) {
+    footer {
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .footer-content {
+      flex-direction: column;
+    }
   }
 </style>

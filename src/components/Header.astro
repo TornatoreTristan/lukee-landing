@@ -1,15 +1,25 @@
+---
+import DropDownMenu from './Nav/DropDownMenu.vue'
+---
+
 <header>
   <section>
-    <nav>
+    <div class="drop">
       <div>
-        <img src="/logo-lukee.svg" alt="logo lukee generateur de publications linkedin" width="80">
+        <a href="/"><img src="/logo-lukee.svg" alt="logo lukee generateur de publications linkedin" width="80"></a>
+      </div>
+      <DropDownMenu client:load />
+    </div>
+    <nav class="desktop-nav">
+      <div>
+        <a href="/"><img src="/logo-lukee.svg" alt="logo lukee generateur de publications linkedin" width="80"></a>
       </div>
       <ul class="nav-elements">
         <li>
-          <a href="">Connexion</a>
+          <a href="https://app.lukee.io/signin">Connexion</a>
         </li>
         <li>
-          <a href="" class="cta-primary">S'inscrire gratuitement</a>
+          <a href="https://app.lukee.io/signup" class="cta-primary">Inscrivez-vous gratuitement</a>
         </li>
       </ul>
     </nav>
@@ -37,5 +47,19 @@
   .cta-primary {
     color: #fff;
     padding: 0.5rem 1.4rem;
+  }
+  .drop {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    .drop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
   }
 </style>

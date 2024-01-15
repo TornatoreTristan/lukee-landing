@@ -7,20 +7,25 @@ import LukeeTestimonials from '../components/Sections/LukeeTestimonials.astro';
 import LukeeFAQ from '../components/Sections/LukeeFAQ.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
+<Layout title="L'assistant IA qui rédige pour toi tes publication LinkedIn - Lukee.io">
 		<section class="header-container">
 			<p><span class="cartouche"><img src="/icon-luckee.svg" width="18" alt="">Lukee 0.4 est en ligne !</span></p>
-			<h1>Gagnez du temps dans la rédaction de vos publications LinkedIn</h1>
-			<p>Lukee est votre assistant dans la rédaction de vos publications sur LinkedIn. Obtenez un résultat époustoufflant grâce à l'intelligence artificielle.</p>
-			<button class="cta-primary">Créer un compte gratuitement</button>
+			<img src="/linkedin-funny-emoji.png" width="70" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-1">
+			<img src="/Linkedin-Curious-emoji.png" width="100" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-2">
+			<img src="/Linkedin-Insightful-emoji.png" width="80" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-3">
+			<img src="/Linkedin-Love-emoji.png" width="80" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-4">
+			<img src="/Linkedin-support-emoji.png" width="70" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-5">
+			<img src="/Linkedin-Like-thumb.png" width="90" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-6">
+			<img src="/Linkedin-clap.png" width="70" alt="LinkedIn funny emoji" class="linkedin-emoji emoji-7">
+			<h1>Ne soyez plus jamais en panne d'inspiration pour la rédaction de vos publications LinkedIn</h1>
+			<p>Lukee c'est votre assistant IA révolutionnaire pour optimiser votre stratégie de personal branding sur LinkedIn sans prise de tête et 100% personnalisée.</p>
+			<a class="cta-primary" href="https://app.lukee.io/signup">Créez un compte gratuitement</a>
 		</section>
 		<LukeeScreenShot />
 		<LukeeMessage />
 		<LukeeBenefits />
 		<LukeeTestimonials />
 		<LukeeFAQ /> 
-	</main>
 </Layout>
 
 <style>
@@ -29,6 +34,7 @@ import LukeeFAQ from '../components/Sections/LukeeFAQ.astro';
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		position: relative;
 	}
 	.header-container h1 {
 		font-size: 3.6rem;
@@ -52,5 +58,96 @@ import LukeeFAQ from '../components/Sections/LukeeFAQ.astro';
 		gap: 10px;
 		align-items: center;
 		font-size: 0.8rem;
+	}
+	.linkedin-emoji {
+		display: block;
+		position: absolute;
+	}
+	.emoji-1 {
+		top: 50px;
+		right: 14%;
+		transform: rotate(30deg);
+	}
+	.emoji-2 {
+		top: 50px;
+		left: 14%;
+		transform: rotate(-30deg);
+	}
+	.emoji-3 {
+		top: 300px;
+		left: 14%;
+		transform: rotate(-30deg);
+	}
+	.emoji-4 {
+		top: 200px;
+		right: 9%;
+		transform: rotate(30deg);
+	}
+	.emoji-5 {
+		top: 500px;
+		left: 12%;
+		transform: rotate(-30deg);
+	}
+	.emoji-6 {
+		top: 300px;
+		right: 11%;
+		transform: rotate(30deg);
+	}
+	.emoji-7 {
+		top: 500px;
+		right: 16%;
+		transform: rotate(30deg);
+	}
+	@media screen and (max-width: 1324px) {
+	.linkedin-emoji {
+		width: 4%;
+	}
+	.emoji-1 {
+		top: 50px;
+		right: 7%;
+		transform: rotate(30deg);
+	}
+	.emoji-2 {
+		top: 50px;
+		left: 7%;
+		transform: rotate(-30deg);
+	}
+	.emoji-3 {
+		top: 300px;
+		left: 7%;
+		transform: rotate(-30deg);
+	}
+	.emoji-4 {
+		top: 200px;
+		right: 4%;
+		transform: rotate(30deg);
+	}
+	.emoji-5 {
+		top: 500px;
+		left: 6%;
+		transform: rotate(-30deg);
+	}
+	.emoji-6 {
+		top: 300px;
+		right: 6%;
+		transform: rotate(30deg);
+	}
+	.emoji-7 {
+		top: 500px;
+		right: 8%;
+		transform: rotate(30deg);
+	}
+	}
+	@media screen and (max-width: 868px) {
+		.header-container h1 {
+			font-size: 1.8rem;
+		}
+		.header-container p {
+			font-size: 0.9rem;
+		}
+		.linkedin-emoji {
+			display: none;
+		}
+		
 	}
 </style>
