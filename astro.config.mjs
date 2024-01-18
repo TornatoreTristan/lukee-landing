@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import vue from "@astrojs/vue";
 import partytown from "@astrojs/partytown";
-
+import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
