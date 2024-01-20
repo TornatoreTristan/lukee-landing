@@ -1,0 +1,67 @@
+
+---
+import Layout from "../../layouts/Layout.astro";
+import MetaContent from "../../components/Content/MetaContent.astro";
+
+import { getCollection } from 'astro:content';
+import BreadCrumbs from "../../components/Nav/BreadCrumbs.astro";
+export async function getStaticPaths() {
+  const entries = await getCollection('changelog');
+  return entries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const author = await getCollection('authors', entry.data.author);
+---
+<Layout title={entry.data.title}>
+
+
+  <BreadCrumbs />
+
+  <section> 
+    <div class="content-header">
+      <h1>{entry.data.title}</h1>
+      <MetaContent author={ author[0].data } date={ entry.data.date } />
+    </div>
+    <Content />
+  </section>
+  <section>
+    <div class="changelog-cta">
+      <h2>Toi aussi donne ton avis !</h2>
+      <h3>C'est ton moment, on t'écoute.</h3>
+      <p>Tu aimerais voir une nouvelle fonctionnalité dans Lukee ? Ou peut être un bug, l'interface ou une fonctionnalité te dérange ? <br/>Alors fais nous part de tes suggestions dans la boite à idée. Si d'autres membres votent pour tes remarques nous les ajouterons rapidement à la Roadmap du développement de Lukee !</p>
+      <a href="https://lukee.canny.io/" class="cta-ternary">Ajouter une suggestion pour le développement de Lukee</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-header {
+    margin-bottom: 2rem;
+  }
+  .content-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0;
+  }
+  .content-header p {
+    margin-top: 0;
+    color: grey;
+    margin:20px 0;
+  }
+  .changelog-cta {
+    padding: 3rem;
+    background-image: url('/banniere-lukee.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    color: white;
+  }
+  .changelog-cta a {
+    display: inline-block;
+    margin-top: 2rem;
+  }
+</style>
