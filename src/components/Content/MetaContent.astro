@@ -1,0 +1,42 @@
+---
+const { author, date } = Astro.props
+---
+
+<div class="meta-header">
+  <p>Mis en production le : <br/> <strong>{date}</strong></p>
+  <div class="separator"></div>
+  <div class="meta-header__author">
+      <img src={author.picture} alt="Tritan Tornatore - Lead Developer de Lukee">
+      <p>Par <a href="https://www.linkedin.com/in/tristan-digital-freelance/">{author.firstname} {author.lastname}</a> <br/>{author.role}</p>
+  </div>
+</div>
+
+<style>
+  .meta-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  .separator {
+    width: 1px;
+    height: 40px;
+    background-color: grey;
+  }
+  .meta-header p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+  .meta-header a {
+    font-weight: bold;
+  }
+  .meta-header__author {
+    display: flex;
+    align-items: center;
+  }
+  .meta-header__author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+</style>

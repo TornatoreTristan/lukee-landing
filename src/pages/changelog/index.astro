@@ -1,0 +1,66 @@
+---
+import MetaContent from "../../components/Content/MetaContent.astro";
+import BreadCrumbs from "../../components/Nav/BreadCrumbs.astro";
+import Layout from "../../layouts/Layout.astro"
+import { getCollection } from "astro:content";
+const changelogEntries = await getCollection("changelog");
+const authors = await getCollection("authors");
+
+function findAuthor(authorId: string) {
+  return authors.find(author => author.id === authorId);
+}
+
+const changelogsWithAuthors = changelogEntries.map(entry => ({
+  ...entry,
+  authorData: findAuthor(entry.data.author),
+}));
+
+console.log(changelogsWithAuthors);
+
+---
+<Layout title="changelog">
+  <BreadCrumbs />
+  <section class="header-section">
+    <h1>Journal des mises à jour sur l'application Lukee</h1>
+    <p>Tous les mois, nous reccueillons vos retours et suggestions pour votre générateur de publications LinkedIn préféré et nous développons les prochaines features pour lesquelles vous avez votées. De plus nous corrigeons également tous les bugs que vous auriez pu nous remonter. N'hésitez donc pas à consuler notre <a href="https://lukee.canny.io/" target="_blank">Roadmap et voter ou proposer vos idées</a> pour rendre Lukee encore plus performant dans votre stratégie de personal branding. Chaque mise à jour est retranscrit ici pour que vous puissiez suivre les étapes de développement.</p>
+  </section>
+  <section>
+    {
+      changelogsWithAuthors.map(changelog => (
+          <article class="preview-changelog">
+            <a href={`/changelog/${changelog.slug}`}>
+              <h2>{changelog.data.title}</h2>
+            </a>
+            <MetaContent author={changelog.authorData?.data} date={changelog.data.date} />
+          </article>
+      ))
+    }
+  </section>
+</Layout>
+
+<style>
+  .header-section {
+    max-width: 800px;
+  }
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    color: #1a1f30;
+  }
+  .preview-changelog {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 1.3rem 0;
+  }
+  .preview-changelog h2{
+    color: #1a1f30;
+    font-size: 2rem;
+    margin: 0;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+  .preview-changelog h2:hover{
+  opacity: 0.7;
+  }
+</style>
