@@ -26,7 +26,9 @@ const author = await getCollection('authors', entry.data.author);
       <h1>{entry.data.title}</h1>
       <MetaContent author={ author[0].data } date={ entry.data.date } />
     </div>
-    <Content />
+    <div class="content">
+      <Content />
+    </div>
   </section>
   <section>
     <div class="changelog-cta">
@@ -63,5 +65,8 @@ const author = await getCollection('authors', entry.data.author);
   .changelog-cta a {
     display: inline-block;
     margin-top: 2rem;
+  }
+  .content {
+    max-width: 800px;
   }
 </style>
